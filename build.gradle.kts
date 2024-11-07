@@ -10,7 +10,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation(platform("org.http4k:http4k-bom:_"))
+    implementation("org.http4k:http4k-contract")
+    implementation("org.http4k:http4k-format-jackson")
+
+    implementation(platform("dev.forkhandles:forkhandles-bom:_"))
+    implementation("dev.forkhandles:result4k")
+    implementation("dev.forkhandles:values4k")
 }
 
 tasks.test {
