@@ -1,17 +1,17 @@
 import org.http4k.core.*
-import org.http4k.routing.RoutedRequest
+import org.http4k.routing.RoutedMessage
 import org.http4k.routing.bind
 import org.http4k.routing.routes
 
 fun main() {
     val routes = routes("/" bind Method.GET to { req: Request ->
         Response(Status.OK)
-            .body((req as? RoutedRequest)?.let { "routing info available in handler" } ?: "no routing info available in handler")
+            .body((req as? RoutedMessage)?.let { "routing info available in handler" } ?: "no routing info available in handler")
     })
 
     val diagnosisFilter = Filter { next ->
         {
-            (it as? RoutedRequest)?.let { println("routing info available in filter") } ?: println("no routing info available in filter")
+            (it as? RoutedMessage)?.let { println("routing info available in filter") } ?: println("no routing info available in filter")
             next(it)
         }
     }

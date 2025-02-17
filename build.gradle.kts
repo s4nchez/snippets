@@ -11,13 +11,13 @@ repositories {
 
 dependencies {
     implementation(platform("org.http4k:http4k-bom:_"))
-    implementation("org.http4k:http4k-contract")
+    implementation("org.http4k:http4k-api-openapi")
     implementation("org.http4k:http4k-format-jackson")
     implementation("org.http4k:http4k-format-moshi")
     implementation("org.http4k:http4k-client-okhttp")
     implementation("org.http4k:http4k-server-undertow")
     implementation("org.http4k:http4k-server-jetty")
-    implementation("org.http4k:http4k-failsafe")
+    implementation("org.http4k:http4k-ops-failsafe")
 
     implementation(platform("dev.forkhandles:forkhandles-bom:_"))
     implementation("dev.forkhandles:result4k")

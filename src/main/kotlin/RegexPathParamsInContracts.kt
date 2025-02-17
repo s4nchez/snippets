@@ -31,7 +31,7 @@ class RegexPathParamsInContracts {
     fun `should route wildcards around contracts`() {
         val app = routes("/foo/bar/{foo:(.*)}/zap" bind contract {
             routes += "" meta {} bindContract POST to { _ -> Response(OK) }
-        }).also { println(it.description) }
+        }).also { println(it.routes) }
 
         assertEquals(
             Response(OK),
@@ -56,7 +56,7 @@ class RegexPathParamsInContracts {
         val pathParam = Path.regex("(.*)").of("foo")
         val app = contract {
             routes += "/foo/bar" / pathParam / "zap" meta {} bindContract POST to { _, _ -> { Response(OK) } }
-        }.also { println(it.description) }
+        }.also { println(it) }
 
         assertEquals(
             Response(OK),
